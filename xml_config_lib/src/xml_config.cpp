@@ -106,6 +106,29 @@ XMLConfig :: getString(std::string in_name, std::string& out_string) {
 }
 
 bool
+XMLConfig :: getVectorOfInt(std::string in_name, std::vector<int>& out_vector) {
+
+  mxml_node_t *node = mxmlFindElement(d_localNode,d_localNode,in_name.c_str(),NULL,NULL,MXML_DESCEND);
+
+  if(node == NULL) {
+    return false;
+  }
+  else {
+    std::string strings = mxmlGetOpaque(node);
+    std::istringstream stringStream(strings);
+    std::string string;
+
+    while(stringStream >> string) {
+      int value = stringToInt(string);
+      out_vector.push_back(value);
+    }
+
+    return true;
+  }
+
+}
+
+bool
 XMLConfig :: getStringAttribute(std::string in_name, std::string& out_string) {
 
   out_string = mxmlElementGetAttr(d_localNode,in_name.c_str());

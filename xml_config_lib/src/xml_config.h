@@ -6,6 +6,7 @@
 #include <assert.h>
 #include "stdio.h"
 #include <string>
+#include <vector>
 #include <sstream>
     
 class XMLConfig {
@@ -82,6 +83,12 @@ class XMLConfig {
   **/
   virtual bool
     getStringAttribute(std::string in_name, std::string& out_string);
+
+  /**
+     @brief get a vector of strings with a given name from local node
+  **/
+  virtual bool
+    getVectorOfInt(std::string in_name, std::vector<int>& out_vector);
 
  protected:
 
