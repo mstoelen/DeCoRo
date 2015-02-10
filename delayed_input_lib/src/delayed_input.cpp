@@ -34,8 +34,8 @@ DelayedInput :: loadFromXML(std::string in_fileName) {
   std::string _inputFileName;
   assert(config.getString("InputXMLFile", _inputFileName));
 
-  std::vector<int> _delays;
-  assert(config.getVectorOfInt("Delays", _delays));
+  std::vector<double> _delays;
+  assert(config.getVectorOfDouble("Delays", _delays));
       
   for(int i = 0; i < _delays.size(); i++) {
 

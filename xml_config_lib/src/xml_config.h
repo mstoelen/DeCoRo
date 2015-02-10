@@ -85,10 +85,16 @@ class XMLConfig {
     getStringAttribute(std::string in_name, std::string& out_string);
 
   /**
-     @brief get a vector of strings with a given name from local node
+     @brief get a vector of ints with a given name from local node
   **/
   virtual bool
     getVectorOfInt(std::string in_name, std::vector<int>& out_vector);
+
+  /**
+     @brief get a vector of doubles with a given name from local node
+  **/
+  virtual bool
+    getVectorOfDouble(std::string in_name, std::vector<double>& out_vector);
 
  protected:
 
