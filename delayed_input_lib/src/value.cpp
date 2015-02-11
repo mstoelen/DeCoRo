@@ -11,8 +11,6 @@ Value :: initialize()
   d_min = -999.99;
   d_max = 999.99;
   d_stdDev = 999.99;
-  d_activationFlag = false;
-  d_hypothesisFlag = false;
   d_currentValue = 0.0;
   
 }
@@ -27,8 +25,6 @@ Value :: print()
   printf("  Min: %7.2f\n", d_min);
   printf("  Max: %7.2f\n", d_max);
   printf("  Std. dev. for input activation: %7.2f\n", d_stdDev);
-  printf("  Activation flag: %d\n", d_activationFlag); 
-  printf("  Hypothesis: %d\n", d_hypothesisFlag);
   printf("\n");   
 
 }
@@ -65,20 +61,6 @@ std::string
 Value :: getTag() {
 
   return d_tag;
-
-}
-
-bool
-Value :: getActivationFlag() {
-
-  return d_activationFlag;
-
-}
-
-bool
-Value :: getHypothesisFlag() {
-
-  return d_hypothesisFlag;
 
 }
 
@@ -128,20 +110,6 @@ void
 Value :: setTag(std::string in_tag) {
 
   d_tag = in_tag;
-
-}
-
-void
-Value :: setActivationFlag(bool in_activationFlag) {
-
-  d_activationFlag = in_activationFlag;
-
-}
-
-void
-Value :: setHypothesisFlag(bool in_hypothesisFlag) {
-
-  d_hypothesisFlag = in_hypothesisFlag;
 
 }
 

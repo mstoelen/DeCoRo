@@ -29,8 +29,6 @@ class Value {
     d_min = in_min;
     d_max = in_max;
     d_stdDev = in_stdDev;
-    d_activationFlag = in_activationFlag;
-    d_hypothesisFlag = in_hypothesisFlag;
 
   }
   
@@ -76,18 +74,6 @@ class Value {
   virtual std::string
     getTag(); 
 
-  /**
-     @brief get activation flag
-  **/
-  virtual bool
-    getActivationFlag(); 
-
-  /**
-     @brief get hypothesis flag
-  **/
-  virtual bool
-    getHypothesisFlag();
-
  /**
      @brief get current value
   **/
@@ -130,18 +116,6 @@ class Value {
   virtual void
     setTag(std::string in_tag); 
 
-  /**
-     @brief set activation flag
-  **/
-  virtual void
-    setActivationFlag(bool in_activityFlag); 
-
-  /**
-     @brief set hypothesis flag
-  **/
-  virtual void
-    setHypothesisFlag(bool in_hypothesisFlag);
-
  protected:
 
   /**
@@ -157,8 +131,6 @@ class Value {
   double d_min;
   double d_max;
   double d_stdDev;
-  bool d_activationFlag;
-  bool d_hypothesisFlag;
 
   double d_currentValue;
 

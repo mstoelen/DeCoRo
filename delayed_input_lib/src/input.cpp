@@ -43,12 +43,6 @@ Input :: loadFromXML(std::string in_fileName) {
     assert(config.getDouble("StdDev", stdDev));
     value->setStdDev(stdDev);
 
-    bool activationFlag, hypothesisFlag;
-    assert(config.getBool("ActivationFlag", activationFlag));
-    value->setActivationFlag(activationFlag);
-    assert(config.getBool("HypothesisFlag", hypothesisFlag));
-    value->setHypothesisFlag(hypothesisFlag);
-
     int resolution;
     assert(config.getInt("Resolution", resolution));
     value->setRes(resolution);
