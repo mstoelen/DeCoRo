@@ -1,22 +1,23 @@
-#ifndef __INPUT_H
-#define __INPUT_H
+#ifndef __MAPPED_INPUT_H
+#define __MAPPED_INPUT_H
 
-#include "value.h"
-#include "xml_config/xml_config_deep.h"
+#include "input.h"
+#include "map.h"
+#include <xml_config/xml_config.h>
 
 #include <assert.h>
 #include "stdio.h"
 #include <vector>
 #include <string>
     
-class Input {
+class MappedInput {
   
  public:
   
   /**
      @brief default constructor
   **/
-  Input() {
+  MappedInput() {
 
     initialize();
 
@@ -25,10 +26,13 @@ class Input {
   /**
      @brief non-default constructor
   **/
-  Input(std::string in_fileContext, std::string in_fileName) {
+  MappedInput(std::string in_fileContext, std::string in_fileName, Input* in_firstInputs, Input* in_secondInputs) {
 
     d_fileContext = in_fileContext;
     d_fileName = in_fileName;
+
+    d_firstInputs = in_firstInputs;
+    d_secondInputs = in_secondInputs;
 
     std::string _completeFileName;
     _completeFileName.append(in_fileContext);
@@ -36,45 +40,47 @@ class Input {
 
     loadFromXML(_completeFileName);
 
+    findIndices();
+
   }
   
   /**
      @brief default destructor
   **/
   virtual 
-    ~Input();
+    ~MappedInput();
   
   /**
      @brief prints the object to cout
   **/
   virtual void
-    print(); 
+    print();
 
   /**
-     @brief get the value at a given index
+     @brief get the mapped input at a given index
   **/
-  virtual Value*
-    getValue(int in_index);
+  virtual Map*
+    getMap(int in_index);
 
  /**
-     @brief get the number of values stored
+     @brief get the number of mapped inputs stored
   **/
   virtual int
-    getNumValues();
+    getNumMaps();
 
   /**
      @brief load content from XML file
   **/
-  virtual void
-    loadFromXML(std::string in_fileName);
-
-  /**
-     @brief find a value with a given tag
-  **/
-  virtual bool
-    findValueIndex(std::string in_tag, int& out_index);
+  void
+  loadFromXML(std::string in_fileName);
 
  protected:
+
+  /**
+     @brief after loading from XML, find indices for input values used in map
+  **/
+  void
+    findIndices();
 
   /**
      @brief initialize
@@ -86,7 +92,10 @@ class Input {
 
   std::string d_fileContext;
   std::string d_fileName;
-  std::vector<Value*> d_values;
+  std::vector<Map*> d_maps;
+
+  Input* d_firstInputs;
+  Input* d_secondInputs;
 
 };
 

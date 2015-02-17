@@ -14,7 +14,7 @@ void
 DelayedInput :: print()
 {
   
-  printf("*************** Delayed Input ***************\n");
+  printf("*************** Delayed Input ***************\n\n");
 
   printf("  Number of delayed inputs: %d\n\n", (int) d_inputs.size());
 

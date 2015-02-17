@@ -63,6 +63,23 @@ Input :: getValue(int in_index) {
 
 }
 
+bool
+Input :: findValueIndex(std::string in_tag, int& out_index) {
+
+  for(int i = 0; i < d_values.size(); i++) {
+    Value* value = getValue(i);
+    std::string tag = value->getTag();
+    int res = in_tag.compare(tag);
+    if(res == 0) {
+      out_index = i;
+      return true;
+    }
+  }
+
+  return false;
+
+}
+
 int
 Input :: getNumValues() {
 
