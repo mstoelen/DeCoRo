@@ -63,6 +63,18 @@ Input :: getValue(int in_index) {
 
 }
 
+void
+Input :: scaleAllResolutions(double in_multiplier) {
+
+  for(int i = 0; i < d_values.size(); i++) {
+    Value* value = d_values.at(i);
+    int res = value->getRes();
+    res = ceil(res * in_multiplier);
+    d_values.at(i)->setRes(res);
+  }
+
+}
+
 bool
 Input :: findValueIndex(std::string in_tag, int& out_index) {
 

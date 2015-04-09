@@ -5,6 +5,7 @@
 #include "xml_config/xml_config_deep.h"
 
 #include <assert.h>
+#include <math.h>
 #include "stdio.h"
 #include <vector>
 #include <string>
@@ -73,6 +74,12 @@ class Input {
   **/
   virtual bool
     findValueIndex(std::string in_tag, int& out_index);
+
+  /**
+     @brief scale the resolution of all values by multiplier (rounding up)
+  **/
+  virtual void
+    scaleAllResolutions(double in_multiplier);
 
  protected:
 

@@ -34,14 +34,21 @@ DelayedInput :: loadFromXML(std::string in_fileName) {
   std::string _inputFileName;
   assert(config.getString("InputXMLFile", _inputFileName));
 
+  double _resMult;
+  assert(config.getDouble("ResolutionMultiplier", _resMult));
+
   std::vector<double> _delays;
   assert(config.getVectorOfDouble("Delays", _delays));
       
   for(int i = 0; i < _delays.size(); i++) {
 
       Input* _input = new Input(d_fileContext,_inputFileName);
+      _input->scaleAllResolutions(_resMult);
+
       d_inputs.push_back(_input);
       d_delays.push_back(_delays.at(i));
+
+      _resMult = _resMult * _resMult;
 
   }
 
