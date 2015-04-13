@@ -54,6 +54,12 @@ Map :: getSecondIndex()
   return d_indexSecond;
 }
 
+double
+Map :: getSecondStdDev()
+{
+  return d_stdDevSecond;
+}
+
 std::string
 Map :: getFirstTag()
 {

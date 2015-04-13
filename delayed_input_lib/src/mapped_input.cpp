@@ -37,13 +37,15 @@ MappedInput :: loadFromXML(std::string in_fileName) {
     assert(config.getString("tagFirstInput", tagFirst));
     std::string tagSecond;
     assert(config.getString("tagSecondInput", tagSecond));
+    double stdDevSecond;
+    assert(config.getDouble("stdDevSecondInput", stdDevSecond));
     
     bool is1D = false;
     if(tagSecond.compare("none") == 0) {
       is1D = true;
     }
 
-    Map* map = new Map(tag, tagFirst, tagSecond, is1D);
+    Map* map = new Map(tag, tagFirst, tagSecond, stdDevSecond, is1D);
     d_maps.push_back(map);
 
   }

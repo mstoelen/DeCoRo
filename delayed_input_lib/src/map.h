@@ -15,11 +15,12 @@ class Map {
   /**
      @brief default constructor
   **/
-  Map(std::string in_tag, std::string in_tagFirstInput, std::string in_tagSecondInput, bool in_is1D) {
+  Map(std::string in_tag, std::string in_tagFirstInput, std::string in_tagSecondInput, double in_stdDevSecondInput, bool in_is1D) {
     
     d_tag = in_tag;
     d_tagFirst = in_tagFirstInput;
     d_tagSecond = in_tagSecondInput;
+    d_stdDevSecond = in_stdDevSecondInput;
     d_is1D = in_is1D;
   }
   
@@ -52,6 +53,12 @@ class Map {
   **/
   virtual int
     getSecondIndex(); 
+
+  /**
+     @brief get std. dev. of second
+  **/
+  virtual double
+    getSecondStdDev(); 
 
   /**
      @brief set second index
@@ -110,6 +117,7 @@ class Map {
   std::string d_tagSecond;
   int d_indexFirst;
   int d_indexSecond;
+  double d_stdDevSecond;
   bool d_is1D;
 
 };
