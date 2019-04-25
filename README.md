@@ -1,6 +1,6 @@
 # DeCoRo
-Repository for the DeCoRo project at Plymouth University, UK.
+This repo was archived 25/04/19.
 
-http://www.tech.plym.ac.uk/SoCCE/CRNS/decoro/
+Repository for the DeCoRo project at Plymouth University, UK.
 
 See also the GummiArm project, developed as part of DeCoRo: http://mstoelen.github.io/GummiArm/
